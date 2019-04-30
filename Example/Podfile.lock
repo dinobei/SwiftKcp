@@ -1,0 +1,16 @@
+PODS:
+  - SwiftKcp (0.1.0)
+
+DEPENDENCIES:
+  - SwiftKcp (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftKcp:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftKcp: 069e574e47c5a8a2b59c5491d2a852ed07fd75fa
+
+PODFILE CHECKSUM: 9e1756d1d033eaf0b8c05db999bacef6a3d77a35
+
+COCOAPODS: 1.6.1

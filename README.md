@@ -1,35 +1,29 @@
 # SwiftKcp
 
-KCP - A Fast and Reliable ARQ Protocol
+[![CI Status](https://img.shields.io/travis/dinobei/SwiftKcp.svg?style=flat)](https://travis-ci.org/dinobei/SwiftKcp)
+[![Version](https://img.shields.io/cocoapods/v/SwiftKcp.svg?style=flat)](https://cocoapods.org/pods/SwiftKcp)
+[![License](https://img.shields.io/cocoapods/l/SwiftKcp.svg?style=flat)](https://cocoapods.org/pods/SwiftKcp)
+[![Platform](https://img.shields.io/cocoapods/p/SwiftKcp.svg?style=flat)](https://cocoapods.org/pods/SwiftKcp)
 
-## install
+## Example
 
-* carthage
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
->github "aixinyunchou/SwiftKcp"
+## Requirements
 
-## usage
+## Installation
 
-1. input swiftkcp
+SwiftKcp is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
 
-> import SwiftKcp
+```ruby
+pod 'SwiftKcp'
+```
 
-2. create kcp object:
+## Author
 
-> let sender = Kcp(outputer:self)
+dinobei, dinobei89@gmail.com
 
-2. setup output delegate:
+## License
 
-> func kcp(kcp:Kcp,outputData:Data) -> Int{
->    //just send data to you udp or tcp target
-> }
-
-3. call update in an interval:
-
-> sender.update(millisec:now)
-
-4. input lower layer data packet:
-
->let reciveData = //read data from you tcp or udp socket
->sender.input(data:reciveData)
-
+SwiftKcp is available under the MIT license. See the LICENSE file for more info.

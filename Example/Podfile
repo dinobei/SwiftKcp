@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SwiftKcp_Example' do
+  pod 'SwiftKcp', :path => '../'
+
+  target 'SwiftKcp_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

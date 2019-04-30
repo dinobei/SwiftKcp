@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ikcp
 
 public protocol KcpOutputer {
     func kcp(kcp:Kcp,outputData:Data) -> Int
@@ -28,7 +27,7 @@ public class Kcp {
         self.recvBufferSize = recvBufferSize
         recvBuffer = UnsafeMutablePointer<Int8>.allocate(capacity: Int(recvBufferSize))
         let pointer = UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque())
-        kcp = ikcp_create(conv, pointer)
+        kcp = ikcp_create(IUINT32(conv), pointer)
         kcp.pointee.output = dummyKcpOutput
     }
     
@@ -58,7 +57,7 @@ public class Kcp {
         return Int32(self.outputer.kcp(kcp: self, outputData: data))
     }
     public func update(millisec:UInt32){
-        ikcp_update(self.kcp, millisec)
+        ikcp_update(self.kcp, IUINT32(millisec))
     }
     
     public func send(data:Data) -> Int32{
