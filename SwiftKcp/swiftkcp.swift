@@ -19,15 +19,16 @@ fileprivate func dummyKcpOutput(buf:UnsafePointer<Int8>?,len:Int32,kcp:UnsafeMut
 public class Kcp {
     fileprivate var kcp:UnsafeMutablePointer<ikcpcb>!
     fileprivate var outputer:KcpOutputer!
-    fileprivate static var conv:UInt32 = 0
     public let identifier:Int
-    public init(outputer:KcpOutputer) {
-        self.outputer = outputer
-        Kcp.conv = Kcp.conv + 1
-        self.identifier = Int(Kcp.conv)
+    public init(conv: UInt32, recvBufferSize:Int32 = 1024) {
+        self.identifier = Int(conv)
         let pointer = UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque())
-        kcp = ikcp_create(Kcp.conv, pointer)
+        kcp = ikcp_create(conv, pointer)
         kcp.pointee.output = dummyKcpOutput
+    }
+    
+    public func outputer(_ outputer: KcpOutputer) {
+        self.outputer = outputer
     }
     
     func kcpOutput(buf:UnsafePointer<Int8>?,len:Int32,kcp:UnsafeMutablePointer<IKCPCB>?,ud:UnsafeMutableRawPointer?) -> Int32{
