@@ -20,5 +20,8 @@
   },
   "swift_version": "4",
   "source_files": "SwiftKcp/*.{swift,c,h}",
-  "preserve_paths": "SwiftKcp/module.map"
+  "preserve_paths": "SwiftKcp/module.map",
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4.0"
+  }
 }
