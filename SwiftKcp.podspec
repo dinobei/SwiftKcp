@@ -13,6 +13,7 @@ KCP - A Fast and Reliable ARQ Protocol
   s.source           = { :git => 'https://github.com/dinobei/SwiftKcp.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.9'
   s.swift_version    = '4'
 
   s.source_files     = 'SwiftKcp/*.{swift,c,h}'
